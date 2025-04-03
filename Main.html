@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le 3 R dell'Economia Circolare</title>
+    <style>
+        :root {
+            --primary-color: #2E8B57;
+            --secondary-color: #3CB371;
+            --accent-color: #F0E68C;
+            --dark-color: #1E5631;
+            --light-color: #F5FFFA;
+            --text-color: #333;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: white;
+            border-radius: 50% 50% 0 0;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin: -30px auto 50px;
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+        }
+
+        .nav-links li {
+            flex: 1;
+            text-align: center;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 20px 10px;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            border-bottom: 3px solid transparent;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--dark-color);
+            border-bottom: 3px solid var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Cards Section */
+        .cards-section {
+            padding: 50px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            width: 350px;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-img {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .card:hover .card-img img {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .card-description {
+            color: var(--text-color);
+            margin-bottom: 20px;
+        }
+
+        .card-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .card-link:hover {
+            background-color: var(--dark-color);
+            transform: scale(1.05);
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 60px 0;
+        }
+
+        .content-section:nth-child(even) {
+            background-color: white;
+        }
+
+        .section-header {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .content-box {
+            background-color: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .content-section:nth-child(even) .content-box {
+            background-color: var(--light-color);
+        }
+
+        .content-intro {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        .tips-list {
+            list-style-position: inside;
+            margin-bottom: 20px;
+        }
+
+        .tips-list li {
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+
+        /* RAEE Categories */
+        .raee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .raee-category {
+            background-color: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 20px;
+            border-top: 5px solid var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .raee-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .raee-category h3 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .raee-category ul {
+            list-style-position: inside;
+        }
+
+        .raee-category li {
+            margin-bottom: 5px;
+        }
+
+        /* Examples Section */
+        .examples-section {
+            background-color: var(--accent-color);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .examples-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .example-box {
+            background-color: white;
+            border-radius: 50%;
+            width: 250px;
+            height: 250px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .example-box:hover {
+            transform: scale(1.1);
+        }
+
+        .example-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .example-box .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(46, 139, 87, 0.8);
+            overflow: hidden;
+            width: 100%;
+            height: 0;
+            transition: .5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .example-box:hover .overlay {
+            height: 100%;
+        }
+
+        .example-box .text {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            padding: 0 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .footer-description {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid white;
+            border-radius: 50px;
+            transition: var(--transition);
+        }
+
+        .footer-link:hover {
+            background-color: white;
+            color: var(--dark-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.3rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+            }
+
+            .nav-links a {
+                padding: 15px;
+            }
+
+            .card {
+                width: 100%;
+            }
+
+            .example-box {
+                width: 200px;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-content">
+            <h1>Le 3 R dell'Economia Circolare</h1>
+            <p class="subtitle">RIDUCI - RIUSA - RICICLA</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <div class="container">
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#riduci">RIDUCI</a></li>
+                <li><a href="#riusa">RIUSA</a></li>
+                <li><a href="#ricicla">RICICLA</a></li>
+                <li><a href="#raee">RAEE</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Cards Section -->
+    <section class="cards-section">
+        <div class="container">
+            <h2 class="section-title">Principi dell'Economia Circolare</h2>
+            <div class="cards-container">
+                <!-- Riduci Card -->
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1527176930608-09cb256ab504" alt="Riduci">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">RIDUCI</h3>
+                        <p class="card-description">Limita il ricorso a nuove materie prime e riduci l'impatto ambientale attraverso scelte di consumo consapevoli.</p>
+                        <a href="#riduci" class="card-link">Scopri di più</a>
+                    </div>
+                </div>
+
+                <!-- Riusa Card -->
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1562077772-3bd90403f7f0" alt="Riusa">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">RIUSA</h3>
+                        <p class="card-description">Prolunga la vita dei tuoi dispositivi elettronici tramite riparazione, aggiornamento e riutilizzo creativo.</p>
+                        <a href="#riusa" class="card-link">Scopri di più</a>
+                    </div>
+                </div>
+
+                <!-- Ricicla Card -->
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1503596476-1c12a8ba09a9" alt="Ricicla">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">RICICLA</h3>
+                        <p class="card-description">Recupera materie prime preziose dai rifiuti elettronici attraverso una corretta raccolta differenziata.</p>
+                        <a href="#ricicla" class="card-link">Scopri di più</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Examples Section -->
+    <section class="examples-section">
+        <div class="container">
+            <h2 class="section-title">Esempi Pratici</h2>
+            <div class="examples-container">
+                <!-- Example 1 -->
+                <div class="example-box">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09" alt="Consumo consapevole">
+                    <div class="overlay">
+                        <div class="text">Consumo Consapevole</div>
+                    </div>
+                </div>
+
+                <!-- Example 2 -->
+                <div class="example-box">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789" alt="Riparazione">
+                    <div class="overlay">
+                        <div class="text">Riparazione e Riutilizzo</div>
+                    </div>
+                </div>
+
+                <!-- Example 3 -->
+                <div class="example-box">
+                    <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b" alt="Raccolta differenziata">
+                    <div class="overlay">
+                        <div class="text">Raccolta Differenziata</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Riduci Section -->
+    <section id="riduci" class="content-section">
+        <div class="container">
+            <h2 class="section-header">RIDUCI</h2>
+            <div class="content-box">
+                <p class="content-intro">LIMITA il ricorso a nuove materie prime da inserire nei processi produttivi.</p>
+                <ul class="tips-list">
+                    <li>Acquista solo ciò che è veramente necessario, evitando sprechi e consumo eccessivo</li>
+                    <li>Scegli prodotti elettronici con maggiore durabilità e possibilità di riparazione</li>
+                    <li>Preferisci dispositivi a basso consumo energetico (classe A+++ o superiore)</li>
+                    <li>Privilegia prodotti con imballaggi minimi o realizzati con materiali riciclati</li>
+                    <li>Valuta la possibilità di noleggiare o condividere dispositivi elettronici che usi raramente</li>
+                    <li>Limita l'uso di batterie usa e getta, preferendo quelle ricaricabili</li>
+                    <li>Spegni e scollega i dispositivi elettronici quando non li usi (evita la modalità standby)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Riusa Section -->
+    <section id="riusa" class="content-section">
+        <div class="container">
+            <h2 class="section-header">RIUSA</h2>
+            <div class="content-box">
+                <p class="content-intro">LIMITA gli sprechi e riutilizza ciò che può essere ancora funzionante.</p>
+                <ul class="tips-list">
+                    <li>Ripara i dispositivi elettronici quando possibile invece di sostituirli</li>
+                    <li>Dona apparecchiature funzionanti che non usi più a scuole, associazioni o persone bisognose</li>
+                    <li>Vendi o scambia dispositivi elettronici di cui non hai più bisogno attraverso mercatini fisici o online</li>
+                    <li>Aggiorna i tuoi dispositivi (quando possibile) invece di sostituirli completamente</li>
+                    <li>Trasforma vecchi dispositivi in nuovi oggetti utili (upcycling)</li>
+                    <li>Riutilizza componenti funzionanti di dispositivi rotti per ripararne altri</li>
+                    <li>Partecipa a laboratori di riparazione collettiva (Repair Café)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ricicla Section -->
+    <section id="ricicla" class="content-section">
+        <div class="container">
+            <h2 class="section-header">RICICLA</h2>
+            <div class="content-box">
+                <p class="content-intro">FAI la raccolta differenziata per indirizzare i rifiuti al corretto trattamento.</p>
+                <ul class="tips-list">
+                    <li>Porta i RAEE (Rifiuti di Apparecchiature Elettriche ed Elettroniche) agli appositi centri di raccolta</li>
+                    <li>Consegna piccoli elettrodomestici obsoleti o non funzionanti nei negozi che vendono nuovi dispositivi</li>
+                    <li>Separa correttamente batterie, lampadine e toner, che vanno smaltiti in contenitori specifici</li>
+                    <li>Verifica con il tuo comune quali sono i punti di raccolta RAEE più vicini</li>
+                    <li>Assicurati che i dati personali vengano cancellati prima di riciclare dispositivi elettronici</li>
+                    <li>Smaltisci correttamente anche gli imballaggi degli apparecchi elettronici, separando plastica, cartone e altri materiali</li>
+                    <li>Informati sulle giornate ecologiche organizzate nella tua zona per lo smaltimento di rifiuti elettronici</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- RAEE Section -->
+    <section id="raee" class="content-section">
+        <div class="container">
+            <h2 class="section-header">Classificazione RAEE</h2>
+            <div class="content-box">
+                <p class="content-intro">I RAEE (Rifiuti di Apparecchiature Elettriche ed Elettroniche) sono classificati in 5 categorie principali:</p>
+                
+                <div class="raee-grid">
+                    <!-- R1 -->
+                    <div class="raee-category">
+                        <h3>R1: Freddo e clima</h3>
+                        <ul>
+                            <li>Frigoriferi</li>
+                            <li>Congelatori</li>
+                            <li>Condizionatori</li>
+                            <li>Distributori automatici</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- R2 -->
+                    <div class="raee-category">
+                        <h3>R2: Grandi bianchi</h3>
+                        <ul>
+                            <li>Lavatrici</li>
+                            <li>Lavastoviglie</li>
+                            <li>Forni</li>
+                            <li>Piani cottura</li>
+                            <li>Asciugatrici</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- R3 -->
+                    <div class="raee-category">
+                        <h3>R3: TV e Monitor</h3>
+                        <ul>
+                            <li>Televisori</li>
+                            <li>Monitor PC</li>
+                            <li>Display</li>
+                            <li>Schermi LCD/LED</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- R4 -->
+                    <div class="raee-category">
+                        <h3>R4: Piccoli elettrodomestici</h3>
+                        <ul>
+                            <li>Smartphone</li>
+                            <li>Computer</li>
+                            <li>Stampanti</li>
+                            <li>Elettroutensili</li>
+                            <li>Apparecchi audio/video</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- R5 -->
+                    <div class="raee-category">
+                        <h3>R5: Sorgenti luminose</h3>
+                        <ul>
+                            <li>Lampadine a risparmio energetico</li>
+                            <li>Tubi al neon</li>
+                            <li>Lampade a LED</li>
+                            <li>Lampade a scarica</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 20px;">Ricorda: è importante smaltire correttamente i RAEE perché contengono sostanze potenzialmente nocive per l'ambiente, ma anche materiali preziosi che possono essere recuperati e riutilizzati in nuovi prodotti.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h2 class="footer-title">Risorse Utili</h2>
+            <p class="footer-description">Link e risorse per approfondire e contribuire all'economia circolare</p>
+            
+            <div class="footer-links">
+                <a href="https://www.cdcraee.it/" class="footer-link">Centro di Coordinamento RAEE</a>
+                <a href="https://www.minambiente.it/pagina/i-raee-e-la-normativa" class="footer-link">Ministero dell'Ambiente</a>
+                <a href="https://www.enea.it/" class="footer-link">ENEA</a>
+                <a href="https://www.ellenmacarthurfoundation.org/" class="footer-link">Ellen MacArthur Foundation</a>
+            </div>
+            
+            <p class="copyright">© 2025 Le 3 R dell'Economia Circolare. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+</body>
+</html>
