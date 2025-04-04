@@ -5,17 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Le 3 R dell'Economia Circolare</title>
     <style>
-        :root {
-            --primary-color: #2E8B57;
-            --secondary-color: #3CB371;
-            --accent-color: #F0E68C;
-            --dark-color: #1E5631;
-            --light-color: #F5FFFA;
-            --text-color: #333;
-            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            --radius: 12px;
-            --transition: all 0.3s ease;
-        }
+:root {
+    --primary-color: #007bff;     /* Blu come colore principale */
+    --secondary-color: #4da6ff;   /* Blu più chiaro */
+    --accent-color: #28a745;      /* Verde come accento */
+    --dark-color: #0056b3;        /* Blu scuro */
+    --black-color: #343a40;       /* Grigio scuro per testo e footer */
+    --light-color: #f8f9fa;       /* Grigio chiarissimo per lo sfondo */
+    --text-color: #343a40;        /* Colore per il testo principale */
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --radius: 12px;
+    --transition: all 0.3s ease;
+}
+
+
 
         * {
             margin: 0;
@@ -107,7 +110,7 @@
         }
 
         .nav-links a:hover {
-            color: var(--dark-color);
+            color: var(--black-color);
             border-bottom: 3px solid var(--primary-color);
             transform: translateY(-3px);
         }
@@ -199,7 +202,7 @@
         }
 
         .card-link:hover {
-            background-color: var(--dark-color);
+            background-color: var(--black-color);
             transform: scale(1.05);
         }
 
@@ -286,7 +289,7 @@
             margin-bottom: 5px;
         }
 
-        /* Examples Section */
+        /* Examples Section - MODIFIED */
         .examples-section {
             background-color: var(--accent-color);
             padding: 60px 0;
@@ -303,54 +306,30 @@
 
         .example-box {
             background-color: white;
-            border-radius: 50%;
+            border-radius: var(--radius);
             width: 250px;
-            height: 250px;
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
             position: relative;
         }
 
-        .example-box:hover {
-            transform: scale(1.1);
-        }
-
         .example-box img {
             width: 100%;
-            height: 100%;
+            height: 200px;
             object-fit: cover;
         }
 
-        .example-box .overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: rgba(46, 139, 87, 0.8);
-            overflow: hidden;
-            width: 100%;
-            height: 0;
-            transition: .5s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .example-box:hover .overlay {
-            height: 100%;
-        }
-
-        .example-box .text {
-            color: white;
-            font-size: 1.5rem;
+        .example-caption {
+            padding: 15px;
+            font-size: 1.2rem;
             font-weight: 600;
-            padding: 0 20px;
+            color: var(--primary-color);
         }
 
         /* Footer */
         footer {
-            background-color: var(--dark-color);
+            background-color: var(--black-color);
             color: white;
             padding: 60px 0 30px;
         }
@@ -385,15 +364,9 @@
         }
 
         .footer-link:hover {
-            background-color: white;
-            color: var(--dark-color);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            font-size: 0.9rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
         }
 
         /* Responsive Design */
@@ -419,8 +392,8 @@
             }
 
             .example-box {
-                width: 200px;
-                height: 200px;
+                width: 100%;
+                max-width: 300px;
             }
         }
     </style>
@@ -490,7 +463,7 @@
         </div>
     </section>
 
-    <!-- Examples Section -->
+    <!-- Examples Section - MODIFIED -->
     <section class="examples-section">
         <div class="container">
             <h2 class="section-title">Esempi Pratici</h2>
@@ -498,25 +471,19 @@
                 <!-- Example 1 -->
                 <div class="example-box">
                     <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09" alt="Consumo consapevole">
-                    <div class="overlay">
-                        <div class="text">Consumo Consapevole</div>
-                    </div>
+                    <div class="example-caption">Consumo Consapevole</div>
                 </div>
 
                 <!-- Example 2 -->
                 <div class="example-box">
                     <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789" alt="Riparazione">
-                    <div class="overlay">
-                        <div class="text">Riparazione e Riutilizzo</div>
-                    </div>
+                    <div class="example-caption">Riparazione e Riutilizzo</div>
                 </div>
 
                 <!-- Example 3 -->
                 <div class="example-box">
                     <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b" alt="Raccolta differenziata">
-                    <div class="overlay">
-                        <div class="text">Raccolta Differenziata</div>
-                    </div>
+                    <div class="example-caption">Raccolta Differenziata</div>
                 </div>
             </div>
         </div>
@@ -579,34 +546,60 @@
         </div>
     </section>
 
-    <!-- RAEE Section -->
+    <!-- RAEE Section - UPDATED CONTENT -->
     <section id="raee" class="content-section">
         <div class="container">
-            <h2 class="section-header">Classificazione RAEE</h2>
+            <h2 class="section-header">I RAEE: Cosa sono e come gestirli</h2>
             <div class="content-box">
-                <p class="content-intro">I RAEE (Rifiuti di Apparecchiature Elettriche ed Elettroniche) sono classificati in 5 categorie principali:</p>
+                <p class="content-intro">I RAEE sono i Rifiuti di Apparecchiature Elettriche ed Elettroniche, che richiedono un trattamento specifico per il loro corretto recupero.</p>
+                
+                <h3 style="color: var(--primary-color); margin-top: 20px; margin-bottom: 15px;">Cosa sono i RAEE?</h3>
+                <p>I RAEE comprendono tutti i dispositivi che dipendono dalla corrente elettrica o da campi elettromagnetici per funzionare correttamente, e le apparecchiature per la generazione, il trasferimento e la misurazione di questi campi e correnti. Questi rifiuti contengono sostanze potenzialmente pericolose per l'ambiente (metalli pesanti, ritardanti di fiamma bromurati, sostanze lesive per l'ozono), ma anche materiali preziosi e rari che possono essere recuperati (oro, argento, palladio, rame, terre rare).</p>
+                
+                <h3 style="color: var(--primary-color); margin-top: 20px; margin-bottom: 15px;">Il simbolo del cassonetto barrato</h3>
+                <p>Tutte le apparecchiature elettriche ed elettroniche (AEE) immesse sul mercato dell'UE dopo il 13 agosto 2005 devono riportare il simbolo del cassonetto barrato. Questo simbolo indica che il prodotto deve essere smaltito separatamente dai rifiuti urbani indifferenziati, attraverso le strutture di raccolta designate.</p>
+                
+                <h3 style="color: var(--primary-color); margin-top: 20px; margin-bottom: 15px;">Perché è importante un corretto smaltimento?</h3>
+                <ul class="tips-list">
+                    <li>Riduce l'inquinamento ambientale causato da sostanze pericolose</li>
+                    <li>Permette il recupero di materiali preziosi e riutilizzabili</li>
+                    <li>Riduce il consumo di risorse naturali</li>
+                    <li>Abbassa le emissioni di CO₂ legate alla produzione di nuovi materiali</li>
+                    <li>Contribuisce a creare posti di lavoro nel settore del riciclo</li>
+                </ul>
+                
+                <h3 style="color: var(--primary-color); margin-top: 20px; margin-bottom: 15px;">Come smaltire correttamente i RAEE</h3>
+                <p>È possibile conferire i RAEE in diversi modi:</p>
+                <ul class="tips-list">
+                    <li>Presso i Centri di Raccolta Comunali (isole ecologiche)</li>
+                    <li>Consegnandoli ai rivenditori: quando si acquista un nuovo prodotto equivalente (regola dell'"1 contro 1")</li>
+                    <li>Per i piccoli RAEE (dimensione esterna inferiore a 25 cm), è possibile consegnarli gratuitamente nei punti vendita con superficie di almeno 400 m², senza obbligo di acquisto (regola dell'"1 contro 0")</li>
+                    <li>Tramite il servizio di ritiro a domicilio, dove previsto dal proprio comune</li>
+                </ul>
                 
                 <div class="raee-grid">
                     <!-- R1 -->
                     <div class="raee-category">
-                        <h3>R1: Freddo e clima</h3>
+                        <h3>R1: Apparecchiature refrigeranti</h3>
                         <ul>
                             <li>Frigoriferi</li>
                             <li>Congelatori</li>
                             <li>Condizionatori</li>
-                            <li>Distributori automatici</li>
+                            <li>Distributori automatici refrigerati</li>
+                            <li>Pompe di calore</li>
                         </ul>
                     </div>
                     
                     <!-- R2 -->
                     <div class="raee-category">
-                        <h3>R2: Grandi bianchi</h3>
+                        <h3>R2: Grandi elettrodomestici</h3>
                         <ul>
-                            <li>Lavatrici</li>
+                            <li>Lavatrici e asciugatrici</li>
                             <li>Lavastoviglie</li>
-                            <li>Forni</li>
+                            <li>Forni elettrici e a microonde</li>
                             <li>Piani cottura</li>
-                            <li>Asciugatrici</li>
+                            <li>Radiatori elettrici</li>
+                            <li>Ventilatori</li>
                         </ul>
                     </div>
                     
@@ -614,22 +607,25 @@
                     <div class="raee-category">
                         <h3>R3: TV e Monitor</h3>
                         <ul>
-                            <li>Televisori</li>
-                            <li>Monitor PC</li>
-                            <li>Display</li>
-                            <li>Schermi LCD/LED</li>
+                            <li>Televisori (LCD, LED, plasma)</li>
+                            <li>Monitor per computer</li>
+                            <li>Schermi</li>
+                            <li>Cornici digitali</li>
+                            <li>Display di vario tipo</li>
                         </ul>
                     </div>
                     
                     <!-- R4 -->
                     <div class="raee-category">
-                        <h3>R4: Piccoli elettrodomestici</h3>
+                        <h3>R4: Piccoli elettrodomestici ed elettronica</h3>
                         <ul>
-                            <li>Smartphone</li>
-                            <li>Computer</li>
-                            <li>Stampanti</li>
-                            <li>Elettroutensili</li>
+                            <li>Computer e laptop</li>
+                            <li>Smartphone e tablet</li>
+                            <li>Periferiche (mouse, tastiere, stampanti)</li>
                             <li>Apparecchi audio/video</li>
+                            <li>Elettroutensili</li>
+                            <li>Giocattoli elettronici</li>
+                            <li>Apparecchi medicali</li>
                         </ul>
                     </div>
                     
@@ -638,33 +634,42 @@
                         <h3>R5: Sorgenti luminose</h3>
                         <ul>
                             <li>Lampadine a risparmio energetico</li>
-                            <li>Tubi al neon</li>
+                            <li>Lampade fluorescenti lineari</li>
                             <li>Lampade a LED</li>
-                            <li>Lampade a scarica</li>
+                            <li>Lampade a scarica ad alta intensità</li>
                         </ul>
                     </div>
                 </div>
                 
-                <p style="margin-top: 20px;">Ricorda: è importante smaltire correttamente i RAEE perché contengono sostanze potenzialmente nocive per l'ambiente, ma anche materiali preziosi che possono essere recuperati e riutilizzati in nuovi prodotti.</p>
+                <h3 style="color: var(--primary-color); margin-top: 30px; margin-bottom: 15px;">Obiettivi europei e raccolta</h3>
+                <p>L'Unione Europea ha fissato obiettivi ambiziosi per la raccolta dei RAEE. Dal 2019, l'obiettivo minimo di raccolta è del 65% del peso medio delle AEE immesse sul mercato nei tre anni precedenti, o in alternativa l'85% dei RAEE generati sul territorio degli Stati membri. Questi obiettivi puntano a ridurre drasticamente la quantità di rifiuti elettronici che finiscono in discarica o che vengono esportati illegalmente.</p>
+
+                <h3 style="color: var(--primary-color); margin-top: 20px; margin-bottom: 15px;">Prepara correttamente i tuoi dispositivi</h3>
+                <ul class="tips-list">
+                    <li>Rimuovi batterie e accumulatori rimovibili, da smaltire separatamente</li>
+                    <li>Cancella tutti i dati personali dai dispositivi elettronici</li>
+                    <li>Non rimuovere componenti o smontare l'apparecchio (potrebbe contenere sostanze pericolose)</li>
+                    <li>Consegna l'apparecchio integro ai centri di raccolta</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <h2 class="footer-title">Risorse Utili</h2>
-            <p class="footer-description">Link e risorse per approfondire e contribuire all'economia circolare</p>
-            
-            <div class="footer-links">
-                <a href="https://www.cdcraee.it/" class="footer-link">Centro di Coordinamento RAEE</a>
-                <a href="https://www.minambiente.it/pagina/i-raee-e-la-normativa" class="footer-link">Ministero dell'Ambiente</a>
-                <a href="https://www.enea.it/" class="footer-link">ENEA</a>
-                <a href="https://www.ellenmacarthurfoundation.org/" class="footer-link">Ellen MacArthur Foundation</a>
-            </div>
-            
-            <p class="copyright">© 2025 Le 3 R dell'Economia Circolare. Tutti i diritti riservati.</p>
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <h2 class="footer-title">Risorse Utili</h2>
+        <p class="footer-description">Link e risorse per approfondire e contribuire all'economia circolare</p>
+        
+        <div class="footer-links">
+            <a href="https://www.cdcraee.it/aee-e-raee/rifiuti-da-apparecchiature-elettriche-ed-elettroniche/?authuser=0" class="footer-link">RAEE - CDC RAEE</a>
+            <a href="https://weee4future.eitrawmaterials.eu/it/" class="footer-link">RAEE - WEEE4Future</a>
+            <a href="https://www.vivienergia.it/casa/vivipedia/guida-energia/rifiuti-raee?authuser=0" class="footer-link">RAEE - ViviEnergia</a>
+            <a href="https://www.arpa.veneto.it/temi-ambientali/rifiuti/rifiuti-speciali/particolari-categorie-di-rifiuto/raee?authuser=0" class="footer-link">RAEE - ARPA Veneto</a>
+            <a href="https://europa.eu/youreurope/business/product-requirements/labels-markings/weee-label/index_it.htm?authuser=0" class="footer-link">RAEE - Regolamenti UE</a>
         </div>
-    </footer>
+    
+    </div>
+</footer>
 </body>
 </html>
